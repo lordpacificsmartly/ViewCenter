@@ -1,0 +1,18 @@
+package com.lordpacific.viewcenter.navigation
+
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import com.core.common.navigation_constants.MovieFeatures
+
+@Composable
+fun AppNavGraph(
+    navController: NavHostController,
+    navigationProvider: NavigationProvider
+) {
+    NavHost(navController = navController, startDestination = MovieFeatures.nestedRoute) {
+        navigationProvider.movieApi.registerGraph(
+            navController, this
+        )
+    }
+}
